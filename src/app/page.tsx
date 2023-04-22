@@ -1,10 +1,14 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import Image from "next/image";
+import { Inter } from "next/font/google";
+import Button from "@/components/ui/Button";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export default async function Home() {
   return (
-    <main><div>Hello World</div></main>
-  )
+    <>
+      <Button>Hello</Button>
+      <Button variant="cancel">Cancel</Button>
+    </>
+  );
 }
