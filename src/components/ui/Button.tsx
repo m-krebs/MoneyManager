@@ -11,6 +11,7 @@ const buttonVariants = cva(
         default: "bg-slate-900 text-white hover:bg-slate-800",
         ghost: "bg-transparent hover:text-slate-900 hover:bg-slate-200",
         cancel: "bg-red-600 text-white hover:bg-red-500",
+        call2action: "bg-gradient-to-br from-purple-600 to-purple-900 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)] hover:shadow-purple-700",
       },
       size: {
         default: "h-10 py-2 px-4",
