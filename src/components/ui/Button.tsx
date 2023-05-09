@@ -8,33 +8,49 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-slate-900 text-white hover:bg-slate-800",
+        default: "bg-secondary text-white hover:bg-secondary-accent",
         ghost: "bg-transparent hover:text-slate-900 hover:bg-slate-200",
         cancel: "bg-red-600 text-white hover:bg-red-500",
-        call2action: "bg-gradient-to-br from-purple-600 to-purple-900 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)] hover:shadow-purple-700",
+        call2action:
+          "bg-gradient-to-br from-primary to-secondary hover:shadow-[0_0_20px_rgba(0,0,0,0.3)] hover:shadow-purple-700 text-black",
       },
       size: {
         default: "h-10 py-2 px-4",
         sm: "h-9 px-2",
         lg: "h-11 px-8",
       },
-      },
-      defaultVariants: {
-          variant: "default",
-          size: "default",
-      }
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
   }
 );
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
-    isLoading?: boolean;
+export interface ButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  isLoading?: boolean;
 }
 
-const Button: FC<ButtonProps> = ({className, children, variant, isLoading, size, ...props}) => {
-    return <button className={cn(buttonVariants({ variant, size, className }))} disabled={isLoading} {...props}>
-        {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
-        {children}
+const Button: FC<ButtonProps> = ({
+  className,
+  children,
+  variant,
+  isLoading,
+  size,
+  ...props
+}) => {
+  return (
+    <button
+      className={cn(buttonVariants({ variant, size, className }))}
+      disabled={isLoading}
+      {...props}
+    >
+      {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+      {children}
     </button>
+  );
 };
 
 export default Button;
